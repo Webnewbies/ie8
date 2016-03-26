@@ -593,7 +593,7 @@ THE SOFTWARE.
       removeEventListener: {value: ElementPrototype.removeEventListener},
       createEvent: {value: function(Class){
         var e;
-        if (Class !== 'Event') throw new Error('unsupported ' + Class);
+        if ( !(Class === 'Event' || Class === 'HTMLEvents') ) throw new Error('unsupported ' + Class);
         e = document.createEventObject();
         e.timeStamp = (new Date()).getTime();
         return e;
